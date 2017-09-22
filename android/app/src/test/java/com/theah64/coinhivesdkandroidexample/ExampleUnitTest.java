@@ -1,4 +1,4 @@
-package com.theah64.coinhivesdkexample;
+package com.theah64.coinhivesdkandroidexample;
 
 import org.junit.Test;
 

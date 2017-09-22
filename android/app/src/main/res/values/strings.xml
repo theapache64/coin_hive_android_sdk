@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">CoinHive SDK Example</string>
+    <string name="app_name">CoinHive SDK Android Example</string>
     <string name="action_settings">Settings</string>
 </resources>

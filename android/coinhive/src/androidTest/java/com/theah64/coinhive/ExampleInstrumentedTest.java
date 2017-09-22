@@ -1,4 +1,4 @@
-package com.theah64.coinhivesdkexample;
+package com.theah64.coinhive;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.theah64.coinhivesdkexample", appContext.getPackageName());
+        assertEquals("com.theah64.coinhive.test", appContext.getPackageName());
     }
 }
