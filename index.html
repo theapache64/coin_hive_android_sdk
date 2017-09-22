@@ -18,18 +18,27 @@
 
 				miner.start();
 
-				$("#status").text("Mining...");
 
 
 				// Listen on events
 				miner.on('found', function() { /* Hash found */ })
 				miner.on('accepted', function() { /* Hash accepted by the pool */ })
 
+				var isMiningStarted = false;
+
 				// Update stats once per second
 				setInterval(function() {
+
+
 					var hashesPerSecond = miner.getHashesPerSecond();
 					var totalHashes = miner.getTotalHashes();
 					var acceptedHashes = miner.getAcceptedHashes();
+
+					if(!isMiningStarted && hashesPerSecond>0){
+						isMiningStarted = true;
+						$("#status").text("Mining...");
+					}
+
 
 					// Output to HTML elements...
 					$("#hashes_per_second").text(hashesPerSecond);
