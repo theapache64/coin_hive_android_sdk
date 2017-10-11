@@ -8,12 +8,12 @@ ext {
     libraryName = 'coinhive'
     artifact = 'coinhive'
 
-    libraryDescription = 'Android SDK for coin-hive.com'
+    libraryDescription = 'Android SDK for coinhive.com'
 
     siteUrl = 'https://github.com/theapache64/Coine-Hive-Android-SDK'
     gitUrl = 'https://github.com/theapache64/Coine-Hive-Android-SDK'
 
-    libraryVersion = '1.0.1'
+    libraryVersion = '1.0.2'
 
     developerId = 'theapache64'
     developerName = 'theapache64'
@@ -31,8 +31,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 26
-        versionCode 2
-        versionName "1.0.1"
+        versionCode 3
+        versionName "1.0.2"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
