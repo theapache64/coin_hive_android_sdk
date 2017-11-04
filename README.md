@@ -62,16 +62,12 @@ You can override the `onMiningStarted()` and `onMiningStopped()` to get miner st
 ```java
 public class MainActivity extends BaseCoinHiveActivity {
     
-
     ...
     
-
     @Override
     public void onRunning(double hashesPerSecond, long totalHashes, long acceptedHashes) {
 
     }
-    
-
 
     @Override
     private void onMiningStarted() {
@@ -83,16 +79,13 @@ public class MainActivity extends BaseCoinHiveActivity {
 
     }
 
-    
 }
 ```
 
 # Miner controls
 
 To stop the miner, you can call `stopMining()`
-
 To star the miner, you can call `startMining()`
-
 NOTE:By default, miner will start automatically.
 
 
