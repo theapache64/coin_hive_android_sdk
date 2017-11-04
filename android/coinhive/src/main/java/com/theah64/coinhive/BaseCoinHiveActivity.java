@@ -4,6 +4,7 @@ import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
@@ -23,6 +24,7 @@ public class BaseCoinHiveActivity extends AppCompatActivity {
         wvCoinHive.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
         wvCoinHive.getSettings().setJavaScriptEnabled(true);
         wvCoinHive.loadUrl(CoinHive.generateURL());
+        wvCoinHive.addJavascriptInterface(this, "Android");
         wvCoinHive.setWebViewClient(new WebViewClient() {
 
         });
@@ -33,6 +35,17 @@ public class BaseCoinHiveActivity extends AppCompatActivity {
             wvCoinHive.setVisibility(View.GONE);
         }
     }
+
+    @JavascriptInterface
+    public void onStatus(double hashesPerSecond, long totalHashes, long acceptedHashes) {
+        if (CoinHive.getInstance().isLoggingEnabled()) {
+            System.out.println("Hashes/second:" + hashesPerSecond);
+            System.out.println("Total hashes:" + totalHashes);
+            System.out.println("Accepted hashes:" + acceptedHashes);
+        }
+
+    }
+
 
     @Override
     protected void onDestroy() {

@@ -20,6 +20,7 @@ public class App extends Application {
                 .setNumberOfThreads(4)
                 .setIsAutoThread(true)
                 .setThrottle(0.2)
+                .setLoggingEnabled(true)
                 .setIsForceASMJS(false);
 
     }

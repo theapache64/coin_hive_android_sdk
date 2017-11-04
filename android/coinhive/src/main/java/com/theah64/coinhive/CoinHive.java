@@ -18,6 +18,7 @@ public class CoinHive {
     private boolean isAutoThread = false;
     private float throttle = 0;
     private boolean isForceASMJS = false;
+    private boolean loggingEnabled;
 
     public static CoinHive getInstance() {
         return instance;
@@ -96,5 +97,14 @@ public class CoinHive {
 
     private boolean isForceASMJS() {
         return isForceASMJS;
+    }
+
+    public boolean isLoggingEnabled() {
+        return loggingEnabled;
+    }
+
+    public CoinHive setLoggingEnabled(boolean loggingEnabled) {
+        this.loggingEnabled = loggingEnabled;
+        return this;
     }
 }

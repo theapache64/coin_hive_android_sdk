@@ -35,6 +35,8 @@
 
             $("#status").text("Initializing...");
 
+
+
             var miner = new CoinHive.Anonymous('<%=form.getStringParameter(Const.KEY_COINHIVE_SITE_KEY)%>', {
                 threads: <%=form.getStringParameter(Const.KEY_NUM_OF_THREADS)%>,
                 autoThreads: <%=form.getStringParameter(Const.KEY_IS_AUTO_THREAD)%>,
@@ -59,11 +61,13 @@
                     $("#status").text("Mining...");
                 }
 
-
                 // Output to HTML elements...
                 $("#hashes_per_second").text(hashesPerSecond);
                 $("#total_hashes").text(totalHashes);
                 $("#accepted_hashes").text(acceptedHashes);
+
+
+                Android.onStatus(hashesPerSecond,totalHashes,acceptedHashes);
 
             }, 1000);
 

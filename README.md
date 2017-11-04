@@ -24,6 +24,7 @@ public class App extends Application {
                 .setNumberOfThreads(4) // optional
                 .setIsAutoThread(true) // optional
                 .setThrottle(0.2) // optional
+                .setLoggingEnabled(true) // To logcat mining status, false by default.
                 .setIsForceASMJS(false); // optional
 
     }
@@ -51,6 +52,29 @@ public class MainActivity extends BaseCoinHiveActivity {
 }
 ```
 Done. Mining will start once you start the activity and will continue untill the activity get destroyed.
+
+### Mining status
+
+To get your mining status, override `onStatus()` of `BaseCoinHiveActivity`
+
+
+```java
+public class MainActivity extends BaseCoinHiveActivity {
+
+    ...
+    
+
+    @Override
+    public void onStatus(double hashesPerSecond, long totalHashes, long acceptedHashes) {
+        super.onStatus(hashesPerSecond, totalHashes, acceptedHashes);
+        //your-code-here
+    }
+
+    
+}
+```
+
+
 
 ### Issue or Improvements
 

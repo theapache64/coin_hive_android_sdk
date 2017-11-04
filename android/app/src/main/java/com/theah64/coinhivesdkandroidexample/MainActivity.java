@@ -16,7 +16,13 @@ public class MainActivity extends BaseCoinHiveActivity {
     }
 
     @Override
+    public void onStatus(double hashesPerSecond, long totalHashes, long acceptedHashes) {
+        super.onStatus(hashesPerSecond, totalHashes, acceptedHashes);
+    }
+
+    @Override
     public boolean isHideMining() {
         return false;
     }
+
 }
