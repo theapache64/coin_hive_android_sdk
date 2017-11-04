@@ -84,8 +84,10 @@ public class MainActivity extends BaseCoinHiveActivity {
 
 ### Miner controls
 
-To stop the miner, you can call `stopMining()`
-To star the miner, you can call `startMining()`
+To stop the miner, you can call `stopMining()`.
+
+To star the miner, you can call `startMining()`.
+
 NOTE:By default, miner will start automatically.
 
 
