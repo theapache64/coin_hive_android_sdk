@@ -15,9 +15,10 @@ public class MainActivity extends BaseCoinHiveActivity {
         setSupportActionBar(toolbar);
     }
 
+
     @Override
-    public void onStatus(double hashesPerSecond, long totalHashes, long acceptedHashes) {
-        super.onStatus(hashesPerSecond, totalHashes, acceptedHashes);
+    public void onRunning(double hashesPerSecond, long totalHashes, long acceptedHashes) {
+        super.onRunning(hashesPerSecond, totalHashes, acceptedHashes);
     }
 
     @Override

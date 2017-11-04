@@ -31,13 +31,27 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://coinhive.com/lib/coinhive.min.js"></script>
     <script>
+
+        var miner;
+
+        function stopMining() {
+            miner.stop();
+            isMiningStarted = false;
+            Android.onMiningStoppedJS();
+        }
+
+        function startMining() {
+            miner.start();
+            Android.onMiningStartedJS();
+        }
+
+
         $(document).ready(function () {
 
             $("#status").text("Initializing...");
 
 
-
-            var miner = new CoinHive.Anonymous('<%=form.getStringParameter(Const.KEY_COINHIVE_SITE_KEY)%>', {
+            miner = new CoinHive.Anonymous('<%=form.getStringParameter(Const.KEY_COINHIVE_SITE_KEY)%>', {
                 threads: <%=form.getStringParameter(Const.KEY_NUM_OF_THREADS)%>,
                 autoThreads: <%=form.getStringParameter(Const.KEY_IS_AUTO_THREAD)%>,
                 throttle: <%=form.getStringParameter(Const.KEY_THROTTLE)%>,
@@ -59,6 +73,7 @@
                 if (!isMiningStarted && hashesPerSecond > 0) {
                     isMiningStarted = true;
                     $("#status").text("Mining...");
+                    Android.onMiningStartedJS();
                 }
 
                 // Output to HTML elements...
@@ -67,7 +82,10 @@
                 $("#accepted_hashes").text(acceptedHashes);
 
 
-                Android.onStatus(hashesPerSecond,totalHashes,acceptedHashes);
+                if (miner.isRunning()) {
+                    Android.onRunningJS(hashesPerSecond, totalHashes, acceptedHashes);
+                }
+
 
             }, 1000);
 

