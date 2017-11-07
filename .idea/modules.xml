@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/android.iml" filepath="$PROJECT_DIR$/android.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/coinhive/coinhive.iml" filepath="$PROJECT_DIR$/coinhive/coinhive.iml" />
+      <module fileurl="file://$PROJECT_DIR$/coinhive_android_sdk.iml" filepath="$PROJECT_DIR$/coinhive_android_sdk.iml" />
     </modules>
   </component>
 </project>
