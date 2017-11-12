@@ -53,7 +53,7 @@ public class BaseCoinHiveActivity extends AppCompatActivity {
     }
 
     public void startMining() {
-        wvCoinHive.loadUrl("javascript:stopMining()");
+        wvCoinHive.loadUrl("javascript:startMining()");
     }
 
 

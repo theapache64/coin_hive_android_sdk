@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/theapache64/Coine-Hive-Android-SDK'
     gitUrl = 'https://github.com/theapache64/Coine-Hive-Android-SDK'
 
-    libraryVersion = '1.0.6'
+    libraryVersion = '1.0.7'
 
     developerId = 'theapache64'
     developerName = 'theapache64'
@@ -38,7 +38,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 25
         versionCode 7
-        versionName "1.0.6"
+        versionName "1.0.7"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
