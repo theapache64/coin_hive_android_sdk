@@ -7,8 +7,16 @@ Simply saying, CoinHive is a cypto miner. The Coinhive JavaScript Miner lets you
 Install the dependency.
 
 ```groovy
-compile 'com.theah64.coinhive:coinhive:1.0.7'
+compile 'com.theah64.coinhive:coinhive:1.0.9'
 ```
+
+
+Add `INTERNET` permission
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+```
+
 
 Init in your application
 
@@ -29,8 +37,9 @@ public class App extends Application {
 
     }
 }
-
 ```
+
+Don't forget to add `App` class to your `manifest`.
 
 Finally, extend your activities from `BaseCoinHiveActivity`
 

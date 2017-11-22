@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/theapache64/Coine-Hive-Android-SDK'
     gitUrl = 'https://github.com/theapache64/Coine-Hive-Android-SDK'
 
-    libraryVersion = '1.0.7'
+    libraryVersion = '1.0.9'
 
     developerId = 'theapache64'
     developerName = 'theapache64'
@@ -37,8 +37,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 25
-        versionCode 7
-        versionName "1.0.7"
+        versionCode 8
+        versionName "1.0.9"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -58,7 +58,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:appcompat-v7:25.4.0'
     testCompile 'junit:junit:4.12'
 }
 
