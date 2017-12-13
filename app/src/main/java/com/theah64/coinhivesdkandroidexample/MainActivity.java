@@ -1,29 +1,28 @@
 package com.theah64.coinhivesdkandroidexample;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import android.support.v7.app.AppCompatActivity;
 
-import com.theah64.coinhive.BaseCoinHiveActivity;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class MainActivity extends BaseCoinHiveActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        ButterKnife.bind(this);
     }
 
-
-    @Override
-    public void onRunning(double hashesPerSecond, long totalHashes, long acceptedHashes) {
-        super.onRunning(hashesPerSecond, totalHashes, acceptedHashes);
+    @OnClick(R.id.bActivityExample)
+    public void onActivityExampleClicked() {
+        startActivity(new Intent(this, CoinHiveActivityExample.class));
     }
 
-    @Override
-    public boolean isHideMining() {
-        return false;
+    @OnClick(R.id.bFragmentExample)
+    public void onFragmentExampleClicked() {
+        startActivity(new Intent(this, CoinHiveFragmentExampleActivity.class));
     }
-
 }

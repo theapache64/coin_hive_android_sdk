@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">CoinHive SDK Android Example</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="Activity_Example">Activity Example</string>
+    <string name="Fragment_Example">Fragment Example</string>
+    <string name="title_activity_coin_hive_fragment_example">CoinHiveFragmentExampleActivity
+    </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
