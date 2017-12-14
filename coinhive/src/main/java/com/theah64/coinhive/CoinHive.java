@@ -1,5 +1,13 @@
 package com.theah64.coinhive;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebViewClient;
+import android.widget.LinearLayout;
+
 /**
  * Created by theapache64 on 22/9/17.
  * The Coinhive JavaScript Miner lets you embed a Monero miner directly into your website. The miner itself does not come with a UI – it's your responsibility to tell your users what's going on and to provide stats on mined hashes.
@@ -64,7 +72,7 @@ public class CoinHive {
      * @param isForceASMJS If true, the miner will always use the asm.js implementation of the hashing algorithm. If false, the miner will use the faster WebAssembly version if supported and otherwise fall back to asm.js. The default is false.
      * @return
      */
-    public CoinHive setIsForceASMJS(boolean isForceASMJS) {
+    public CoinHive setForceASMJS(boolean isForceASMJS) {
         this.isForceASMJS = isForceASMJS;
         return this;
     }
@@ -106,5 +114,71 @@ public class CoinHive {
     public CoinHive setLoggingEnabled(boolean loggingEnabled) {
         this.loggingEnabled = loggingEnabled;
         return this;
+    }
+
+    static class Miner {
+
+        private final Callback callback;
+        private android.webkit.WebView wvCoinHive;
+
+        @SuppressLint("AddJavascriptInterface")
+        Miner(Activity activity, Callback callback) {
+            this.callback = callback;
+
+            this.wvCoinHive = new android.webkit.WebView(activity);
+            wvCoinHive.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+            wvCoinHive.getSettings().setJavaScriptEnabled(true);
+            wvCoinHive.addJavascriptInterface(this, "Android");
+            wvCoinHive.setWebViewClient(new WebViewClient() {
+
+            });
+
+            ((ViewGroup) activity.getWindow().getDecorView().findViewById(android.R.id.content)).addView(wvCoinHive);
+            wvCoinHive.setVisibility(callback.isShowMining() ? View.VISIBLE : View.GONE);
+            wvCoinHive.loadUrl(CoinHive.generateURL());
+        }
+
+        @JavascriptInterface
+        public void onMiningStartedJS() {
+            callback.onMiningStarted();
+        }
+
+        @JavascriptInterface
+        public void onMiningStoppedJS() {
+            callback.onMiningStopped();
+        }
+
+
+        @JavascriptInterface
+        public void onRunningJS(double hashesPerSecond, long totalHashes, long acceptedHashes) {
+            if (CoinHive.getInstance().isLoggingEnabled()) {
+                System.out.println("Hashes/second:" + hashesPerSecond);
+                System.out.println("Total hashes:" + totalHashes);
+                System.out.println("Accepted hashes:" + acceptedHashes);
+            }
+
+            callback.onRunning(hashesPerSecond, totalHashes, acceptedHashes);
+        }
+
+
+        void stopMining() {
+            wvCoinHive.loadUrl("javascript:stopMining()");
+        }
+
+        void startMining() {
+            wvCoinHive.loadUrl("javascript:startMining()");
+        }
+
+
+    }
+
+    public interface Callback {
+        boolean isShowMining();
+
+        void onMiningStarted();
+
+        void onMiningStopped();
+
+        void onRunning(double hashesPerSecond, long totalHashes, long acceptedHashes);
     }
 }

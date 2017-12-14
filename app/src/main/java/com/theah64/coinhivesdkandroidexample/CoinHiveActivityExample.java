@@ -44,8 +44,7 @@ public class CoinHiveActivityExample extends BaseCoinHiveActivity {
     }
 
     @Override
-    public boolean isHideMining() {
-        return false;
+    public boolean isShowMining() {
+        return true;
     }
-
 }

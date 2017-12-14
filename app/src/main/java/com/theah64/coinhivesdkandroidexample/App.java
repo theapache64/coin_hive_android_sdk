@@ -19,7 +19,7 @@ public class App extends Application {
                 .setIsAutoThread(true)
                 .setThrottle(0.2)
                 .setLoggingEnabled(true)
-                .setIsForceASMJS(false);
+                .setForceASMJS(false);
 
     }
 }

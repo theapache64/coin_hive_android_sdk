@@ -7,7 +7,7 @@ Simply saying, CoinHive is a cypto miner. The Coinhive JavaScript Miner lets you
 Install the dependency.
 
 ```groovy
-compile 'com.theah64.coinhive:coinhive:1.1.0'
+compile 'com.theah64.coinhive:coinhive:1.2.0'
 ```
 
 
@@ -33,15 +33,15 @@ public class App extends Application {
                 .setIsAutoThread(true) // optional
                 .setThrottle(0.2) // optional
                 .setLoggingEnabled(true) // To logcat mining status, false by default.
-                .setIsForceASMJS(false); // optional
+                .setForceASMJS(false); // optional
 
     }
 }
 ```
 
 Don't forget to add `App` class to your `manifest`.
-
 Finally, extend your activities or fragments from `BaseCoinHiveActivity` or `BaseCoinHiveFragment` respectively
+
 
 ```java
 public class MainActivity extends BaseCoinHiveActivity {
@@ -60,7 +60,9 @@ public class MainActivity extends BaseCoinHiveActivity {
 
 }
 ```
-Done. Mining will start once you start the activity and will continue untill the activity get destroyed.
+
+Done. Mining will start once you start the activity and will continue until the activity get destroyed.
+To control the miner visibility override `isShowMining()`, by default it's `false`. 
 
 ### Miner status
 
@@ -71,20 +73,23 @@ You can override the `onMiningStarted()` and `onMiningStopped()` to get miner st
 ```java
 public class MainActivity extends BaseCoinHiveActivity {
     
-    ...
+    //your program code goes here
     
     @Override
     public void onRunning(double hashesPerSecond, long totalHashes, long acceptedHashes) {
+
 
     }
 
     @Override
     private void onMiningStarted() {
 
+
     }
     
     @Override
     private void onMiningStopped() {
+
 
     }
 
