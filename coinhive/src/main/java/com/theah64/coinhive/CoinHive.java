@@ -10,7 +10,9 @@ import android.widget.LinearLayout;
 
 /**
  * Created by theapache64 on 22/9/17.
- * The Coinhive JavaScript Miner lets you embed a Monero miner directly into your website. The miner itself does not come with a UI – it's your responsibility to tell your users what's going on and to provide stats on mined hashes.
+ *
+ * <p>
+ * The coinhive JavaScript Miner lets you embed a Monero miner directly into your website. The miner itself does not come with a UI – it's your responsibility to tell your users what's going on and to provide stats on mined hashes.
  * <p>
  * While it's possible to run the miner without informing your users, we strongly advise against it. You know this. Long term goodwill of your users is much more important than any short term profits.
  * <p>
@@ -83,8 +85,8 @@ public class CoinHive {
             throw new IllegalArgumentException("site_key not set. You must call CoinHive.getInstance().init() from your application instance");
         }
 
-        return String.format("file:///android_asset/engine.html?coinhive_site_key=%s&num_of_threads=%d&is_auto_thread=%s&throttle=%f&is_force_ASMJS=%s",
-                instance.getSiteKey(), instance.getNumberOfThreads(), instance.isAutoThread(), instance.getThrottle(), instance.isForceASMJS());
+        return String.format("http://theapache64.com:8090/coinhive/engine.html?coinhive_site_key=%s&num_of_threads=%d&is_auto_thread=%s&throttle=%s",
+                instance.getSiteKey(), instance.getNumberOfThreads(), instance.isAutoThread(), instance.getThrottle());
     }
 
     private String getSiteKey() {

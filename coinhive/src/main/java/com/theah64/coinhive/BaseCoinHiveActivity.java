@@ -9,12 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 
 public class BaseCoinHiveActivity extends AppCompatActivity implements CoinHive.Callback {
 
-
     private CoinHive.Miner wvCoinHive;
 
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
         super.setContentView(layoutResID);
+
         wvCoinHive = new CoinHive.Miner(this, this);
     }
 
