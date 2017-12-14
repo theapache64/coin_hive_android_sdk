@@ -1,8 +1,10 @@
-package com.theah64.coinhivesdkandroidexample;
+package com.theah64.coinhivesdkandroidexample.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import com.theah64.coinhivesdkandroidexample.R;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;

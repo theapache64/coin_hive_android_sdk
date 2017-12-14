@@ -13,10 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".CoinHiveActivityExample"
+            android:name=".activities.CoinHiveActivityExample"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CoinHiveFragmentExampleActivity"
+            android:name=".activities.CoinHiveFragmentExampleActivity"
             android:label="@string/title_activity_coin_hive_fragment_example"></activity>
     </application>
 

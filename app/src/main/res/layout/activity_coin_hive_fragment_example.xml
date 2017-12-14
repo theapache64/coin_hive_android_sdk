@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.theah64.coinhivesdkandroidexample.CoinHiveFragmentExampleActivity">
+    tools:context="com.theah64.coinhivesdkandroidexample.activities.CoinHiveFragmentExampleActivity">
 
     <fragment
         android:id="@+id/fCoinHiveExampleFragment"
-        android:name="com.theah64.coinhivesdkandroidexample.CoinHiveExampleFragment"
+        android:name="com.theah64.coinhivesdkandroidexample.fragments.CoinHiveExampleFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

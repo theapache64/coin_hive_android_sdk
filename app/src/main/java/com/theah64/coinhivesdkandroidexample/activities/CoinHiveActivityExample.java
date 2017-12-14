@@ -1,4 +1,4 @@
-package com.theah64.coinhivesdkandroidexample;
+package com.theah64.coinhivesdkandroidexample.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.theah64.coinhive.BaseCoinHiveActivity;
+import com.theah64.coinhivesdkandroidexample.R;
 
 public class CoinHiveActivityExample extends BaseCoinHiveActivity {
 

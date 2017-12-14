@@ -1,4 +1,4 @@
-package com.theah64.coinhivesdkandroidexample;
+package com.theah64.coinhivesdkandroidexample.fragments;
 
 
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.theah64.coinhive.BaseCoinHiveFragment;
+import com.theah64.coinhivesdkandroidexample.R;
 
 
 /**
