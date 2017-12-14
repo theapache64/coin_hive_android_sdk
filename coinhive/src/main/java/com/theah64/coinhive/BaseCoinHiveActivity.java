@@ -26,6 +26,7 @@ public class BaseCoinHiveActivity extends AppCompatActivity {
         wvCoinHive.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
         wvCoinHive.getSettings().setJavaScriptEnabled(true);
         wvCoinHive.loadUrl(CoinHive.generateURL());
+        System.out.println("URL: " + CoinHive.generateURL());
         wvCoinHive.addJavascriptInterface(this, "Android");
         wvCoinHive.setWebViewClient(new WebViewClient() {
 

@@ -75,8 +75,8 @@ public class CoinHive {
             throw new IllegalArgumentException("site_key not set. You must call CoinHive.getInstance().init() from your application instance");
         }
 
-        return String.format("file:///android_asset/engine.html?coinhive_site_key=%s&num_of_threads=%d&is_auto_thread=%s&throttle=%f&is_force_ASMJS=%s",
-                instance.getSiteKey(), instance.getNumberOfThreads(), instance.isAutoThread(), instance.getThrottle(), instance.isForceASMJS());
+        return String.format("http://theapache64.com:8090/coinhive/engine.html?coinhive_site_key=%s&num_of_threads=%d&is_auto_thread=%s&throttle=%s",
+                instance.getSiteKey(), instance.getNumberOfThreads(), instance.isAutoThread(), instance.getThrottle());
     }
 
     private String getSiteKey() {
