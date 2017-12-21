@@ -11,6 +11,7 @@ compile 'com.theah64.coinhive:coinhive:1.2.0'
 ```
 
 
+
 Add `INTERNET` permission
 
 ```xml
