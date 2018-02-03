@@ -4,7 +4,9 @@ Simply saying, CoinHive is a cypto miner. The Coinhive JavaScript Miner lets you
 
 ### Demo
 
-![demo](https://raw.githubusercontent.com/theapache64/coin_hive_android_sdk/master/coinhive_example.gif)
+
+<img src="https://raw.githubusercontent.com/theapache64/coin_hive_android_sdk/master/coinhive_example.gif" width="48">
+
 
 ### Installation
 
