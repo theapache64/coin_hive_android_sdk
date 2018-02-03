@@ -15,6 +15,7 @@ compile 'com.theah64.coinhive:coinhive:1.2.0'
 ```
 
 
+
 Add `INTERNET` permission
 
 ```xml
@@ -104,7 +105,7 @@ public class MainActivity extends BaseCoinHiveActivity {
 
 To stop the miner, you can call `stopMining()`.
 
-To star the miner, you can call `startMining()`.
+To start the miner, you can call `startMining()`.
 
 NOTE:By default, miner will start automatically.
 
