@@ -2,11 +2,19 @@
     <string name="app_name">CoinHive SDK Android Example</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="Activity_Example">Activity Example</string>
+    <string name="Simple_Activity_Example">Simple Activity Example</string>
     <string name="Fragment_Example">Fragment Example</string>
     <string name="title_activity_coin_hive_fragment_example">CoinHiveFragmentExampleActivity
     </string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Custom_Activity_Example">Custom Activity Example</string>
+    <string name="title_activity_custom_example">CustomActivityExample</string>
+    <string name="Hashes_Second">Hashes/Second</string>
+    <string name="Total_Hashes">Total Hashes</string>
+    <string name="Accepted_Hashes">Accepted Hashes</string>
+    <string name="Mining">Mining…</string>
+    <string name="Mining_Stopped">Mining Stopped</string>
+    <string name="loading">Loading...</string>
 </resources>

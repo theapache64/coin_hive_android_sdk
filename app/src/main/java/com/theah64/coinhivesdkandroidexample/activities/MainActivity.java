@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.bActivityExample)
+    @OnClick(R.id.bSimpleActivityExample)
     public void onActivityExampleClicked() {
         startActivity(new Intent(this, CoinHiveActivityExample.class));
     }
@@ -26,5 +26,10 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.bFragmentExample)
     public void onFragmentExampleClicked() {
         startActivity(new Intent(this, CoinHiveFragmentExampleActivity.class));
+    }
+
+    @OnClick(R.id.bCustomActivityExample)
+    public void onCustomActivityExampleClicked() {
+        startActivity(new Intent(this, CustomActivityExample.class));
     }
 }

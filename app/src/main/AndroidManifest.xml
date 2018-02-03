@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activities.CoinHiveActivityExample"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.MainActivity"
             android:label="@string/app_name">
@@ -26,7 +26,10 @@
         </activity>
         <activity
             android:name=".activities.CoinHiveFragmentExampleActivity"
-            android:label="@string/title_activity_coin_hive_fragment_example"></activity>
+            android:label="@string/title_activity_coin_hive_fragment_example" />
+        <activity
+            android:name=".activities.CustomActivityExample"
+            android:label="@string/title_activity_custom_example" />
     </application>
 
 </manifest>

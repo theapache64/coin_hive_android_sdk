@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 
 /**
  * Created by theapache64 on 22/9/17.
- *
+ * <p>
  * <p>
  * The coinhive JavaScript Miner lets you embed a Monero miner directly into your website. The miner itself does not come with a UI – it's your responsibility to tell your users what's going on and to provide stats on mined hashes.
  * <p>
@@ -121,11 +121,13 @@ public class CoinHive {
     static class Miner {
 
         private final Callback callback;
+        private final Activity activity;
         private android.webkit.WebView wvCoinHive;
 
         @SuppressLint("AddJavascriptInterface")
         Miner(Activity activity, Callback callback) {
             this.callback = callback;
+            this.activity = activity;
 
             this.wvCoinHive = new android.webkit.WebView(activity);
             wvCoinHive.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
@@ -142,24 +144,41 @@ public class CoinHive {
 
         @JavascriptInterface
         public void onMiningStartedJS() {
-            callback.onMiningStarted();
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    callback.onMiningStarted();
+                }
+            });
         }
 
         @JavascriptInterface
         public void onMiningStoppedJS() {
-            callback.onMiningStopped();
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    callback.onMiningStopped();
+                }
+            });
         }
 
 
         @JavascriptInterface
-        public void onRunningJS(double hashesPerSecond, long totalHashes, long acceptedHashes) {
+        public void onRunningJS(final double hashesPerSecond, final long totalHashes, final long acceptedHashes) {
+
             if (CoinHive.getInstance().isLoggingEnabled()) {
                 System.out.println("Hashes/second:" + hashesPerSecond);
                 System.out.println("Total hashes:" + totalHashes);
                 System.out.println("Accepted hashes:" + acceptedHashes);
             }
 
-            callback.onRunning(hashesPerSecond, totalHashes, acceptedHashes);
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    callback.onRunning(hashesPerSecond, totalHashes, acceptedHashes);
+                }
+            });
+
         }
 
 

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.theah64.coinhivesdkandroidexample.activities.CustomActivityExample">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        android:gravity="center">
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/aviLoading"
+            style="@style/AVLoadingIndicatorView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:indicatorColor="@color/colorPrimary"
+            app:indicatorName="LineScaleIndicator" />
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/aviMining"
+            style="@style/AVLoadingIndicatorView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:indicatorColor="@color/colorPrimary"
+            app:indicatorName="TriangleSkewSpinIndicator" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        android:gravity="center"
+        android:text="@string/loading" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <!--Hash per second-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/labelStyle"
+                android:text="@string/Hashes_Second" />
+
+            <TextView
+                android:id="@+id/tvHashesPerSecond"
+                style="@style/valueStyle"
+                android:text="0" />
+
+        </LinearLayout>
+
+        <!--Total hashes-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/labelStyle"
+                android:text="@string/Total_Hashes" />
+
+            <TextView
+                android:id="@+id/tvTotalHashes"
+                style="@style/valueStyle"
+                android:text="0" />
+
+        </LinearLayout>
+
+
+        <!--Accepted Hashes-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/labelStyle"
+                android:text="@string/Accepted_Hashes" />
+
+            <TextView
+                android:id="@+id/tvAcceptedHashes"
+                style="@style/valueStyle"
+                android:text="0" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

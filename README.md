@@ -2,6 +2,10 @@
 
 Simply saying, CoinHive is a cypto miner. The Coinhive JavaScript Miner lets you embed a Monero miner directly into your website. but there wasn't any solution for android, to mine Monero from apps. So i developed one. :)
 
+### Demo
+
+![demo]()
+
 ### Installation
 
 Install the dependency.

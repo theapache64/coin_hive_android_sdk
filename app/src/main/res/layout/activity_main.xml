@@ -7,10 +7,10 @@
     tools:context="com.theah64.coinhivesdkandroidexample.activities.MainActivity">
 
     <Button
-        android:id="@+id/bActivityExample"
+        android:id="@+id/bSimpleActivityExample"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Activity_Example" />
+        android:text="@string/Simple_Activity_Example" />
 
     <Button
         android:id="@+id/bFragmentExample"
@@ -18,5 +18,11 @@
         android:layout_height="wrap_content"
         android:text="@string/Fragment_Example" />
 
+
+    <Button
+        android:id="@+id/bCustomActivityExample"
+        android:layout_width="match_parent"
+        android:text="@string/Custom_Activity_Example"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
