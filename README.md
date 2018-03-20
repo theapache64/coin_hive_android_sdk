@@ -12,8 +12,8 @@ Simply saying, CoinHive is a cypto miner. The Coinhive JavaScript Miner lets you
 
 Install the dependency.
 
-```groovy
-compile 'com.theah64.coinhive:coinhive:1.2.1'
+```
+compile 'com.theah64.coinhive:coinhive:1.2.2'
 ```
 
 

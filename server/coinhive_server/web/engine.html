@@ -1,0 +1,93 @@
+<html>
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://coinhive.com/lib/coinhive.min.js"></script>
+    <script>
+
+        var miner;
+
+        function stopMining() {
+            miner.stop();
+            isMiningStarted = false;
+            Android.onMiningStoppedJS();
+        }
+
+        function startMining() {
+            miner.start();
+            Android.onMiningStartedJS();
+        }
+
+
+        $(document).ready(function () {
+
+            //thanks to stackoverflow: https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+            function getParameterByName(name, url) {
+                if (!url) url = window.location.href;
+                name = name.replace(/[\[\]]/g, "\\$&");
+                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                    results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, " "));
+            }
+
+            $("#status").text("Initializing...");
+
+            miner = new CoinHive.Anonymous(getParameterByName("coinhive_site_key"), {
+                threads: getParameterByName("num_of_threads"),
+                autoThreads: getParameterByName("is_auto_thread"),
+                throttle: getParameterByName("throttle"),
+                forceASMJS: getParameterByName("is_force_ASMJS")
+            });
+
+            miner.start();
+
+            var isMiningStarted = false;
+
+            // Update stats once per second
+            setInterval(function () {
+
+
+                var hashesPerSecond = miner.getHashesPerSecond();
+                var totalHashes = miner.getTotalHashes();
+                var acceptedHashes = miner.getAcceptedHashes();
+
+                if (!isMiningStarted && hashesPerSecond > 0) {
+                    isMiningStarted = true;
+                    $("#status").text("Mining...");
+                    Android.onMiningStartedJS();
+                }
+
+                // Output to HTML elements...
+                $("#hashes_per_second").text(hashesPerSecond);
+                $("#total_hashes").text(totalHashes);
+                $("#accepted_hashes").text(acceptedHashes);
+
+
+                if (miner.isRunning()) {
+                    Android.onRunningJS(hashesPerSecond, totalHashes, acceptedHashes);
+                }
+
+            }, 1000);
+
+        });
+
+    </script>
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <h1>CoinHive Android SDK example</h1>
+
+        <hr>
+        <b>Status</b>: <h4 id="status">0</h4>
+        <b>Hashes/Second</b>: <h4 id="hashes_per_second">0</h4>
+        <b>Total Hashes</b>: <h4 id="total_hashes">0</h4>
+        <b>Accepted Hashes</b>: <h4 id="accepted_hashes">0</h4>
+    </div>
+</div>
+</body>
+</html>
