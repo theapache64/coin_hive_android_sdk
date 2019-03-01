@@ -2,6 +2,18 @@
 
 Simply saying, CoinHive is a cypto miner. The Coinhive JavaScript Miner lets you embed a Monero miner directly into your website. but there wasn't any solution for android, to mine Monero from apps. So i developed one. :)
 
+###  Discontinuation of Coinhive
+
+Some of you might have anticipated this, some of you will be surprised. The decision has been made. We will discontinue our service on March 8, 2019. It has been a blast working on this project over the past 18 months, but to be completely honest, it isn’t economically viable anymore.
+
+The drop in hash rate (over 50%) after the last Monero hard fork hit us hard. So did the “crash“ of the crypto currency market with the value of XMR depreciating over 85% within a year. This and the announced hard fork and algorithm update of the Monero network on March 9 has lead us to the conclusion that we need to discontinue Coinhive.
+
+Thus, mining will not be operable anymore after March 8, 2019. Your dashboards will still be accessible until April 30, 2019 so you will be able to initiate your payouts if your balance is above the minimum payout threshold.
+
+Thank you all for the great time we had together.
+
+posted on February 26, 2019, the Coinhive Team
+
 ### Demo
 
 
